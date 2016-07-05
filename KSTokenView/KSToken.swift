@@ -71,6 +71,9 @@ public class KSToken : UIControl {
    ///Token border color
    public var borderColor: UIColor = UIColor.blackColor()
 
+   /// Token corner radius
+   public var tokenCornerRadius: CGFloat = 15.0
+
    /// default is 200. Maximum width of token. After maximum limit is reached title is truncated at end with '...'
    private var _maxWidth: CGFloat? = 200
    var maxWidth: CGFloat {
@@ -121,7 +124,7 @@ public class KSToken : UIControl {
       //// Rectangle Drawing
       
       // fill background
-      let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: 15)
+      let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: tokenCornerRadius)
       
       var textColor: UIColor
       var backgroundColor: UIColor
