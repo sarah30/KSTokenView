@@ -689,15 +689,15 @@ public class KSTokenView: UIView {
       if (!_canAddMoreToken()) {
          return
       }
-      _showEmptyResults()
-      _showActivityIndicator()
-      
+//      _showEmptyResults()
+//      _showActivityIndicator()
+
       let trimmedSearchString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
       delegate?.tokenView(self, performSearchWithString:trimmedSearchString, completion: { (results) -> Void in
-         self._hideActivityIndicator()
-         if (results.count > 0) {
-            self._displayData(results)
-         }
+//         self._hideActivityIndicator()
+//         if (results.count > 0) {
+//            self._displayData(results)
+//         }
       })
    }
    
