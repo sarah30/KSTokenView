@@ -466,7 +466,7 @@ public class KSTokenView: UIView {
       _tokenField.removeToken(token, removingAll: removingAll)
       if (!removingAll) {
          delegate?.tokenView?(self, didDeleteToken: token)
-         _startSearchWithString(_lastSearchString)
+//         _startSearchWithString(_lastSearchString)
       }
    }
    
@@ -650,9 +650,9 @@ public class KSTokenView: UIView {
    func tokenFieldDidBeginEditing(tokenField: KSTokenField) {
       delegate?.tokenViewDidBeginEditing?(self)
       tokenField.tokenize()
-      if (minimumCharactersToSearch == 0) {
-         _startSearchWithString("")
-      }
+//      if (minimumCharactersToSearch == 0) {
+//         _startSearchWithString("")
+//      }
    }
    
    func tokenFieldDidEndEditing(tokenField: KSTokenField) {
