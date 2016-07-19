@@ -103,7 +103,8 @@ public class KSTokenView: UIView {
    private let _searchResultHeight: CGFloat = 200.0
    private var _lastSearchString: String = ""
    private var _intrinsicContentHeight: CGFloat = UIViewNoIntrinsicMetric
-   
+   private var _lastText: String = ""
+
    //MARK: - Public Properties
    //__________________________________________________________________________________
    //
@@ -649,8 +650,9 @@ public class KSTokenView: UIView {
    //
    func tokenFieldDidBeginEditing(tokenField: KSTokenField) {
       delegate?.tokenViewDidBeginEditing?(self)
+      _lastText = self.text
       tokenField.tokenize()
-      self.text = _lastSearchString
+      self.text = _lastText
 //      if (minimumCharactersToSearch == 0) {
 //         _startSearchWithString("")
 //      }
