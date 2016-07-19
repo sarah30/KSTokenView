@@ -107,7 +107,7 @@ public class KSTokenView: UIView {
    //MARK: - Public Properties
    //__________________________________________________________________________________
    //
-   
+
    /// returns the value of field
    public var text : String {
       get {
@@ -650,6 +650,7 @@ public class KSTokenView: UIView {
    func tokenFieldDidBeginEditing(tokenField: KSTokenField) {
       delegate?.tokenViewDidBeginEditing?(self)
       tokenField.tokenize()
+      self.text = _lastSearchString
 //      if (minimumCharactersToSearch == 0) {
 //         _startSearchWithString("")
 //      }
