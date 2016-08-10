@@ -184,6 +184,7 @@ public class KSTokenField: UITextField {
    private func _setScrollRect() {
     let buffer:CGFloat = _bufferX ?? 0.0;
     _scrollView.frame = CGRect(x: _leftViewRect().width + buffer, y: 0, width: frame.width - _leftViewRect().width, height: frame.height)
+    _scrollView.contentSize = _scrollView.frame.size
    }
    
    override public func drawRect(rect: CGRect) {
