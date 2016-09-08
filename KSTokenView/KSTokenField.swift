@@ -707,7 +707,7 @@ extension KSTokenField : UIScrollViewDelegate {
    }
    
    public func scrollViewDidScroll(aScrollView: UIScrollView) {
-      text = KSTextEmpty
+      //text = KSTextEmpty
       updateCaretVisiblity(aScrollView)
    }
    
