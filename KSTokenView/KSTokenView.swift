@@ -393,6 +393,8 @@ public class KSTokenView: UIView {
       _tokenField.tokenFieldDelegate = self
       _tokenField.placeholder = ""
       _tokenField.autoresizingMask = [.FlexibleWidth]
+      _tokenField.addTarget(self, action: #selector(self.tokenFieldTextDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+
       _updateTokenField()
       addSubview(_tokenField)
       
@@ -410,7 +412,14 @@ public class KSTokenView: UIView {
       _intrinsicContentHeight = _tokenField.bounds.height
       invalidateIntrinsicContentSize()
    }
-   
+
+  func tokenFieldTextDidChange(sender:UITextField){
+    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(100 * Double(NSEC_PER_MSEC)))
+    dispatch_after(delayTime, dispatch_get_main_queue()) {
+      self._startSearchWithString(self._tokenField.text!)
+    }
+  }
+  
    //MARK: - Layout changes
    //__________________________________________________________________________________
    //
@@ -889,7 +898,7 @@ extension KSTokenView : UITextFieldDelegate {
       // Allow all other characters
       if (searchString.characters.count >= minimumCharactersToSearch && searchString != "\n") {
          _lastSearchString = searchString
-         _startSearchWithString(_lastSearchString)
+         //_startSearchWithString(_lastSearchString)
       } else {
          _hideSearchResults()
       }
