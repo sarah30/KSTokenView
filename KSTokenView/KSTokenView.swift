@@ -80,7 +80,7 @@ import UIKit
    optional func tokenViewDidFailToDeleteAllTokens(tokenView: KSTokenView)
    
    optional func tokenViewDidShowSearchResults(tokenView: KSTokenView)
-   optional func tokenViewDidHideSearchResults(tokenView: KSTokenView)
+  optional func tokenViewDidHideSearchResults(tokenView: KSTokenView)
 }
 
 //MARK: - KSTokenView
@@ -911,6 +911,10 @@ extension KSTokenView : UITextFieldDelegate {
       resignFirstResponder()
       return true
    }
+  
+  public func tokenize(){
+    _tokenField.tokenize()
+  }
 }
 
 //MARK: - Extension UITableViewDelegate
