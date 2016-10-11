@@ -85,7 +85,7 @@ public class KSTokenField: UITextField {
    var placeHolderColor: UIColor = UIColor.grayColor()
    
    /// default is 120.0. After maximum limit is reached, tokens starts scrolling vertically
-   var maximumHeight: CGFloat = 120.0
+   var maximumHeight: CGFloat = 30.0
    
    /// default is nil
    override public var placeholder: String? {
@@ -602,7 +602,7 @@ public class KSTokenField: UITextField {
    private func _initPlaceholderLabel() {
       let xPos = _marginX!
       if (_placeholderLabel == nil) {
-         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: leftView!.frame.origin.y, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: _leftViewRect().size.height))
+         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: xPos, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: _leftViewRect().size.height))
          _placeholderLabel?.textColor = placeHolderColor
          _placeholderLabel?.font = _font
          _scrollView.addSubview(_placeholderLabel!)
