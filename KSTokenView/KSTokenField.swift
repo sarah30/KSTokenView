@@ -85,7 +85,7 @@ public class KSTokenField: UITextField {
    var placeHolderColor: UIColor = UIColor.grayColor()
    
    /// default is 120.0. After maximum limit is reached, tokens starts scrolling vertically
-   var maximumHeight: CGFloat = 30.0
+   var maximumHeight: CGFloat = 40.0
    
    /// default is nil
    override public var placeholder: String? {
@@ -490,7 +490,7 @@ public class KSTokenField: UITextField {
       if (tokens.count != 0 && _state == .Closed) {
          return CGRect(x: _leftViewRect().maxX + _marginX! + _bufferX!, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
       }
-      return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+      return CGRect(x: _caretPoint!.x, y: (bounds.size.height - font!.lineHeight)*0.5, width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
    }
    
    override public func leftViewRectForBounds(bounds: CGRect) -> CGRect {
@@ -602,7 +602,7 @@ public class KSTokenField: UITextField {
    private func _initPlaceholderLabel() {
       let xPos = _marginX!
       if (_placeholderLabel == nil) {
-         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: xPos, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: _leftViewRect().size.height))
+         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: xPos+10, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: _leftViewRect().size.height))
          _placeholderLabel?.textColor = placeHolderColor
          _placeholderLabel?.font = _font
          _scrollView.addSubview(_placeholderLabel!)
